@@ -1,0 +1,8 @@
+machine:
+  ruby:
+    version: 2.2.1
+test:
+  post:
+    - bundle exec rubocop -R:
+        environment:
+          RAILS_ENV: development
