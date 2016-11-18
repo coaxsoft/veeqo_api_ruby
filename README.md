@@ -32,6 +32,23 @@ end
 Veeqo::Company.info
 => #<Veeqo::Company id=1234>
 ```
+### Thread Safety
+
+The `Veeqo.configure` method is NOT thread-safe. This mechanism is designed for applications or CLI's (command-line interfaces) where thread safety is not a concern. If you need to guarantee thread safety, we support this alternative mechanism to make thread-safe API requests:
+
+Rather then setting up a single `connection` for all API requests, you would construct a new connection for each thread. If you can ensure that each of these connections is stored in a thread-safe manner, you can pass the `connection` as you query the resource.
+
+```rb
+connection = Veeqo::Connection.build(
+  Veeqo::Config.new(
+    api_key: ENV['VEEQO_API_KEY']
+  )
+)
+=> #<Faraday::Connection:0x007fbf95068978 ... >>
+
+Veeqo::Company.info(connection: connection)
+=> #<Veeqo::Company id=1234>
+```
 
 
 ## Development
