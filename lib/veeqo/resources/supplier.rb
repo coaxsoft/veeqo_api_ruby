@@ -4,7 +4,7 @@
 
 module Veeqo
   class Supplier < Resource
-    include Veeqo::ResourceActions.new(uri: 'suppliers/%d', disable: [:find, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'suppliers/%d', disable: [:find, :create, :destroy, :destroy_all])
 
     property :id
     property :name
@@ -31,5 +31,18 @@ module Veeqo
     property :bank_account_number
     property :bank_sort_code
     property :bank_name
+
+    def self.create(params = {})
+      post path.build, params
+    rescue Veeqo::NotAccepted
+      nil
+    end
+
+    def self.update(resource_id, params = {})
+      raise ArgumentError if resource_id.nil?
+      put path.build(resource_id), params
+    rescue Veeqo::NotAccepted
+      nil
+    end
   end
 end
