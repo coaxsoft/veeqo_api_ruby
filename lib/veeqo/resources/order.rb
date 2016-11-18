@@ -47,5 +47,12 @@ module Veeqo
     property :total_tax
     property :updated_at
     property :updated_by
+
+    def self.destroy(resource_id, params = {})
+      raise ArgumentError if resource_id.nil?
+      delete path.build(resource_id), params
+    rescue Veeqo::NotFound
+      nil
+    end
   end
 end

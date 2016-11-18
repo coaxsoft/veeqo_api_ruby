@@ -33,3 +33,6 @@ puts @order
 
 # Update a order
 puts Veeqo::Order.update(@order.id, notes: 'example')
+
+# Delete a order
+puts Veeqo::Order.destroy(@order.id)
