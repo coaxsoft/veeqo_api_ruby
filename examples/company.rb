@@ -9,3 +9,6 @@ puts Veeqo::Company.info
 
 # Check connection
 puts Veeqo::Company.check_connection
+
+# Unofficial: Current user info. For creating purchase order.
+Veeqo::Company.current_user
