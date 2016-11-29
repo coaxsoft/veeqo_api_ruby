@@ -21,3 +21,6 @@ puts Veeqo::Product.update(@product.id, notes: 'example')
 
 # Delete a product
 puts Veeqo::Product.destroy(@product.id)
+
+# Unofficial: Update suppliers for product. For creating purchase order.
+puts Veeqo::Product.update_suppliers(@product.id)
