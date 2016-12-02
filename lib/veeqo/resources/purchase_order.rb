@@ -4,7 +4,7 @@
 
 module Veeqo
   class PurchaseOrder < Resource
-    include Veeqo::ResourceActions.new(uri: 'purchase_orders/%d', disable: [:create, :update, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'purchase_orders/%d', disable: [:update, :destroy, :destroy_all])
 
     property :id
     property :number
@@ -30,5 +30,11 @@ module Veeqo
     property :send_to_supplier
     property :line_items
     property :supplier
+
+    def self.create(params = {})
+      post path.build, params
+    rescue JSON::ParserError
+      nil
+    end
   end
 end
