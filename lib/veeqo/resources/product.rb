@@ -42,5 +42,12 @@ module Veeqo
     property :web_page_title
     property :web_page_url
     property :weight
+
+    def self.update_suppliers(resource_id, params = {})
+      include Veeqo::ResourceActions.new uri: 'supplier_product_variants'
+      raise ArgumentError if resource_id.nil?
+      params[:product_id] = resource_id
+      get path.build, params
+    end
   end
 end
