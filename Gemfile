@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gemspec
 group :development do
+  gem 'awesome_print'
   gem 'pry'
   gem 'rspec'
-  gem 'simplecov'
   gem 'rubocop'
-  gem 'awesome_print'
+  gem 'simplecov'
 end
