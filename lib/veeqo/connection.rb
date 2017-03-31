@@ -6,6 +6,7 @@ module Veeqo
 
     def self.build(config)
       Faraday.new(url: config.api_url) do |conn|
+        conn.options[:timeout] = 120
         conn.request :json
         conn.headers = HEADERS
         conn.use Veeqo::Middleware::Auth, config
