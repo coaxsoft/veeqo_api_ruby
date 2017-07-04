@@ -7,6 +7,9 @@ end
 # Company info
 puts Veeqo::Company.info
 
+# Update company info
+puts Veeqo::Company.update(name: 'Test')
+
 # Check connection
 puts Veeqo::Company.check_connection
 
