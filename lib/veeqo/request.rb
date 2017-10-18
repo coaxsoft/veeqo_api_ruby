@@ -64,6 +64,11 @@ module Veeqo
         build_response_object response
       end
 
+      def quantity(path, params = {})
+        response = raw_request(:get, path, params)
+        response.headers['X-Total-Count'].to_i
+      end
+
       def raw_request(method, path, params = {})
         client = params.delete(:connection) || Veeqo.api
         client.send(method, path.to_s, params)

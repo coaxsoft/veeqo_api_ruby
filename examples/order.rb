@@ -36,3 +36,8 @@ puts Veeqo::Order.update(@order.id, notes: 'example')
 
 # Delete a order
 puts Veeqo::Order.destroy(@order.id)
+
+# Orders quantity by params
+
+puts Veeqo::Order.count(status: 'awaiting_fulfillment')
+

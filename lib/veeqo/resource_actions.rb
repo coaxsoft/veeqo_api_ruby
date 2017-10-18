@@ -46,6 +46,10 @@ module Veeqo
       def destroy_all(params = {})
         delete path.build, params
       end
+
+      def count(params = {})
+        quantity path.build, params
+      end
     end
   end
 end

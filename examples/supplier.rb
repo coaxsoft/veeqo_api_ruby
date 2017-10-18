@@ -29,3 +29,7 @@ supplier_data = {
 puts Veeqo::Supplier.update(@supplier, supplier_data)
 
 puts Veeqo::Supplier.destroy(@supplier)
+
+# Get suppliers quantity by params
+
+puts Veeqo::Supplier.count

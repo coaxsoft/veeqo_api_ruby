@@ -54,5 +54,6 @@ module Veeqo
     rescue Veeqo::NotFound
       nil
     end
+
   end
 end

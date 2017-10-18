@@ -4,7 +4,7 @@
 
 module Veeqo
   class DeliveryMethod < Resource
-    include Veeqo::ResourceActions.new(uri: 'delivery_methods/%d', disable: [:destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'delivery_methods/%d', disable: [:destroy_all, :count])
 
     property :id
     property :cost

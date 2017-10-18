@@ -36,3 +36,6 @@ Veeqo::PurchaseOrder.create(
 
 # Delete a order
 puts Veeqo::Order.destroy(Veeqo::PurchaseOrder.all.first.id)
+
+# Show purchase orders quantity by params
+puts Veeqo::PurchaseOrder.count(show_complete: true)
