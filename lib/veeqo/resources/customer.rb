@@ -4,7 +4,7 @@
 
 module Veeqo
   class Customer < Resource
-    include Veeqo::ResourceActions.new(uri: 'customers/%d', disable: [:destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'customers/%d', disable: %i[destroy destroy_all])
 
     property :id
     property :email

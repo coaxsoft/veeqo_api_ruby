@@ -4,7 +4,7 @@
 
 module Veeqo
   class Order < Resource
-    include Veeqo::ResourceActions.new(uri: 'orders/%d', disable: [:destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'orders/%d', disable: %i[destroy destroy_all])
 
     property :id
     property :allocated_completely

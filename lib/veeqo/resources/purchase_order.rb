@@ -4,7 +4,7 @@
 
 module Veeqo
   class PurchaseOrder < Resource
-    include Veeqo::ResourceActions.new(uri: 'purchase_orders/%d', disable: [:update, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'purchase_orders/%d', disable: %i[update destroy destroy_all])
 
     property :id
     property :number

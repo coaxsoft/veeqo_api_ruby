@@ -4,7 +4,7 @@
 
 module Veeqo
   class Supplier < Resource
-    include Veeqo::ResourceActions.new(uri: 'suppliers/%d', disable: [:find, :create, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'suppliers/%d', disable: %i[find create destroy destroy_all])
 
     property :id
     property :name

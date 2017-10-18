@@ -4,7 +4,7 @@
 
 module Veeqo
   class Warehouse < Resource
-    include Veeqo::ResourceActions.new(uri: 'warehouses/%d', disable: [:create, :update, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'warehouses/%d', disable: %i[create update destroy destroy_all])
 
     property :id
     property :address_line_1

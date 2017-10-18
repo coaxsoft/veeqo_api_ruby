@@ -1,6 +1,6 @@
 module Veeqo
   class Allocation < Resource
-    include Veeqo::SubresourceActions.new(uri: 'orders/%d/allocations/%d', disable: [:destroy_all, :all, :find])
+    include Veeqo::SubresourceActions.new(uri: 'orders/%d/allocations/%d', disable: %i[destroy_all all find])
 
     property :id
     property :additional_order_level_taxless_discount
