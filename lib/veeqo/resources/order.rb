@@ -51,8 +51,13 @@ module Veeqo
     def self.destroy(resource_id, params = {})
       raise ArgumentError if resource_id.nil?
       delete path.build(resource_id), params
-    rescue Veeqo::NotFound
+    rescue Veeqo::NotFoundex
       nil
+    end
+
+    def self.bulk_tagging(resource_ids, tag_ids, params = {})
+      raise ArgumentError if resource_ids.empty? || tag_ids.empty?
+      post 'https://app.veeqo.com/bulk_tagging', {order_ids: resource_ids, tag_ids: tag_ids}.merge(params)
     end
 
   end

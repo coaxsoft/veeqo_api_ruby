@@ -1,14 +1,15 @@
 Veeqo.configure do |config|
   config.api_key = ENV['VEEQO_API_KEY']
 end
-
+@order = Veeqo::Order.all.first
+@warehouse = Veeqo::Warehouse.all.first
+@sellable = @order[:line_items].first[:sellable]
 # Create allocation
-Veeqo::Allocation.create(@order_id, warehouse_id: @warehouse_id, connection: connection)
-
+@allocation = Veeqo::Allocation.create(@order.id, warehouse_id: @warehouse.id, connection: connection)
 # Update allocation
 
 Veeqo::Allocation.update(@order.id,
-                         allocation.id,
+                         @allocation.id,
                          warehouse_id: @warehouse.id,
                          line_items_attributes:
                            [
