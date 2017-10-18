@@ -50,7 +50,8 @@ module Veeqo
 
       def delete(path, params = {})
         response = raw_request(:delete, path, params)
-        response.body
+        return response.body if response.body.empty?
+        build_response_object response
       end
 
       def post(path, params = {})

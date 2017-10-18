@@ -1,5 +1,15 @@
 module Veeqo
   class SubresourceActions < ResourceActions
+    attr_reader :options
+
+    def initialize(options = {})
+      @options = options
+      tap do |mod|
+        mod.define_singleton_method :_options do
+          mod.options
+        end
+      end
+    end
 
     def included(base)
       base.send(:include, Request.new(options[:uri]))
