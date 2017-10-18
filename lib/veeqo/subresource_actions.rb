@@ -1,5 +1,6 @@
 module Veeqo
   class SubresourceActions < ResourceActions
+
     def included(base)
       base.send(:include, Request.new(options[:uri]))
       base.extend(ClassMethods)
