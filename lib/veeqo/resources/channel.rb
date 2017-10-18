@@ -1,6 +1,6 @@
 # Channels
 # Resources related to the channels in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/channels
+# http://docs.veeqo.apiary.io/#reference/stores/store-collection/list-all-stores
 
 module Veeqo
   class Channel < Resource

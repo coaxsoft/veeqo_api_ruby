@@ -1,6 +1,13 @@
-@order = Veeqo::Order.all(status: 'awaiting_fulfillment', connection: connection).first
+require 'veeqo'
+
+Veeqo.configure do |config|
+  config.api_key = ENV['VEEQO_API_KEY']
+end
+
+@order = Veeqo::Order.all(status: 'awaiting_fulfillment').first
 @allocation = @order[:allocations].first
 
+# Create shipment
 @shipment = {
   shipment: {
     carrier_id: 3,

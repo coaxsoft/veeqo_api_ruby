@@ -1,6 +1,6 @@
 # Orders
 # Resources related to the orders in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/orders
+# http://docs.veeqo.apiary.io/#reference/orders/order-collection
 
 module Veeqo
   class Order < Resource
@@ -57,8 +57,7 @@ module Veeqo
 
     def self.bulk_tagging(resource_ids, tag_ids, params = {})
       raise ArgumentError if resource_ids.empty? || tag_ids.empty?
-      post 'https://app.veeqo.com/bulk_tagging', {order_ids: resource_ids, tag_ids: tag_ids}.merge(params)
+      post 'https://app.veeqo.com/bulk_tagging', { order_ids: resource_ids, tag_ids: tag_ids }.merge(params)
     end
-
   end
 end

@@ -13,7 +13,7 @@ puts @products
 puts Veeqo::Tag.find(@tag.id)
 
 # Create a tag
-@tag = Veeqo::Tag.create(colour: "#ffA501", name: 'Test')
+@tag = Veeqo::Tag.create(colour: '#ffA501', name: 'Test')
 puts @product
 
 # Update a tag

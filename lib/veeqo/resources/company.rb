@@ -1,6 +1,6 @@
 # Company
 # Metadata that describes the Company.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/company
+# http://docs.veeqo.apiary.io/#reference/company/company/view-company-detail
 
 module Veeqo
   class Company < Resource

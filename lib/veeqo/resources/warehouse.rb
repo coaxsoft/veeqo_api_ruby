@@ -1,6 +1,6 @@
 # Warehouses
 # Resources related to the Warehouses in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/warehouses
+# http://docs.veeqo.apiary.io/#reference/warehouses/warehouse-collection
 
 module Veeqo
   class Warehouse < Resource

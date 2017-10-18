@@ -39,7 +39,6 @@ puts Veeqo::Order.update(@order.id, notes: 'example')
 # Params:
 # order_ids - array of order ids
 # tags_ids - id of tags that would be assigned to those orders
-
 Veeqo::Order.bulk_tagging([@order.id], [@tag.id])
 
 # Delete a order
@@ -47,6 +46,3 @@ puts Veeqo::Order.destroy(@order.id)
 
 # Orders quantity by params
 puts Veeqo::Order.count(status: 'awaiting_fulfillment')
-
-
-

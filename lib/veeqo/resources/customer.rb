@@ -1,6 +1,6 @@
 # customers
 # Resources related to the customers in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/customers
+# http://docs.veeqo.apiary.io/#reference/customers/customer-collection/list-all-customers
 
 module Veeqo
   class Customer < Resource
