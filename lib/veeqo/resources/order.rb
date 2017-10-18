@@ -51,7 +51,7 @@ module Veeqo
     def self.destroy(resource_id, params = {})
       raise ArgumentError if resource_id.nil?
       delete path.build(resource_id), params
-    rescue Veeqo::NotFoundex
+    rescue Veeqo::NotFound
       nil
     end
 
