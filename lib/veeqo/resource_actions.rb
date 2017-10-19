@@ -4,10 +4,8 @@ module Veeqo
 
     def initialize(options = {})
       @options = options
-      tap do |mod|
-        mod.define_singleton_method :_options do
-          mod.options
-        end
+      define_singleton_method :_options do
+        options
       end
     end
 
