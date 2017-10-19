@@ -6,7 +6,7 @@ end
 
 # List tags
 @tags = Veeqo::Tag.all
-puts @products
+puts @tags
 
 # Get a tag
 @tag = @tags[0]

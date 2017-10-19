@@ -30,8 +30,12 @@ module Veeqo
       get path.build, params
     end
 
-    def self.check_connection
-      info
+    def self.update(params = {})
+      put path.build, params
+    end
+
+    def self.check_connection(params = {})
+      info(params)
       true
     rescue Veeqo::Unauthorized
       false
