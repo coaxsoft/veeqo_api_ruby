@@ -14,9 +14,13 @@ module Veeqo
     def included(base)
       base.send(:include, Request.new(options[:uri]))
       base.extend(ClassMethods)
-      options[:disable_methods] ||= []
-      methods = ClassMethods.public_instance_methods & options[:disable_methods]
-      methods.each { |name| base.send(:remove_method, name) }
+      options[:disable] ||= []
+      methods = ClassMethods.public_instance_methods & options[:disable]
+      class << base
+        self
+      end.class_eval do
+        methods.each { |filtered_name| undef_method filtered_name }
+      end
     end
 
     module ClassMethods
