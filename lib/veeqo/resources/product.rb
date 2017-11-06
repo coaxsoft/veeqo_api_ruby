@@ -1,6 +1,6 @@
 # Products
 # Resources related to the products in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/products
+# http://docs.veeqo.apiary.io/#reference/products/product-collection/list-all-products
 
 module Veeqo
   class Product < Resource

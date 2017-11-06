@@ -16,3 +16,4 @@ tmp/*
 .env
 .env-*
 vendor/bundle
+.byebug_history

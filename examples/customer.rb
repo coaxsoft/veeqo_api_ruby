@@ -18,3 +18,6 @@ puts @customer
 
 # Update a Customer
 puts Veeqo::Customer.update(@customer.id, phone: '1234567890')
+
+# Customer's quantity by params
+puts Veeqo::Customer.count(query: 'example@example.com')

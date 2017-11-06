@@ -1,14 +1,16 @@
-# Orders
-# Resources related to the orders in the API.
-# http://docs.veeqo.apiary.io/#reference/orders/order-collection
+# Allocations
+# Resources related to the allocations in the API.
+# http://docs.veeqo.apiary.io/#reference/allocations/allocation-collection/create-a-new-allocation
 
 module Veeqo
-  class Order < Resource
-    include Veeqo::ResourceActions.new(uri: 'orders/%d', disable: %i[destroy destroy_all])
+  class Allocation < Resource
+    include Veeqo::SubresourceActions.new(uri: 'orders/%d/allocations/%d', disable: %i[destroy_all all find])
 
     property :id
+    property :additional_order_level_taxless_discount
     property :allocated_completely
     property :allocations
+    property :allocated_by_id
     property :buyer_user_id
     property :cancel_reason
     property :cancelled_at
@@ -25,32 +27,39 @@ module Veeqo
     property :due_date
     property :employee_notes
     property :fulfilled_by_amazon
+    property :fulfillment_channel_order
     property :international
+    property :is_amazon_premium_order
+    property :is_amazon_prime
     property :line_items
+    property :matched_parcel_properties_criteria
     property :notes
     property :number
+    property :order_id
     property :packed_completely
     property :payment
     property :picked_completely
     property :receipt_printed
+    property :recommended_shipping_options
     property :refund_amount
+    property :restock_shipped_items
     property :returns
     property :send_notification_email
     property :send_refund_email
+    property :shipment
     property :shipped_at
     property :status
     property :subtotal_price
     property :tags
     property :till_id
     property :total_discounts
+    property :total_fees
     property :total_price
     property :total_tax
+    property :total_weight
     property :updated_at
     property :updated_by
-
-    def self.bulk_tagging(resource_ids, tag_ids, params = {})
-      raise ArgumentError if resource_ids.empty? || tag_ids.empty?
-      post 'https://app.veeqo.com/bulk_tagging', { order_ids: [*resource_ids], tag_ids: [*tag_ids] }.merge(params)
-    end
+    property :weight_unit
+    property :warehouse
   end
 end

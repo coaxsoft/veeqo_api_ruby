@@ -24,3 +24,7 @@ puts Veeqo::Product.destroy(@product.id)
 
 # Unofficial: Update suppliers for product. For creating purchase order.
 puts Veeqo::Product.update_suppliers(@product.id)
+
+# Get products quantity by params
+
+puts Veeqo::Product.count(query: 'Diesel', since_id: 123_456_789)

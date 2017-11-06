@@ -1,10 +1,10 @@
 # Warehouses
 # Resources related to the Warehouses in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/warehouses
+# http://docs.veeqo.apiary.io/#reference/warehouses/warehouse-collection
 
 module Veeqo
   class Warehouse < Resource
-    include Veeqo::ResourceActions.new(uri: 'warehouses/%d', disable: [:create, :update, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'warehouses/%d', disable: %i[create update destroy destroy_all])
 
     property :id
     property :address_line_1

@@ -1,10 +1,10 @@
-# customers
-# Resources related to the customers in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/customers
+# Suppliers
+# Resources related to the suppliers in the API.
+# http://docs.veeqo.apiary.io/#reference/suppliers/supplier-collection
 
 module Veeqo
   class Supplier < Resource
-    include Veeqo::ResourceActions.new(uri: 'suppliers/%d', disable: [:find, :create, :destroy, :destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'suppliers/%d', disable: %i[find create destroy destroy_all])
 
     property :id
     property :name
