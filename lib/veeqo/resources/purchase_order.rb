@@ -33,7 +33,7 @@ module Veeqo
 
     def self.create(params = {})
       post path.build, params
-    rescue JSON::ParserError
+    rescue Oj::ParseError
       nil
     end
   end
