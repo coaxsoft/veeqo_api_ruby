@@ -1,4 +1,5 @@
 require 'hashie'
+require 'oj'
 require 'faraday_middleware'
 require 'veeqo/version'
 require 'veeqo/config'
