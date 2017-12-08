@@ -21,3 +21,6 @@ puts Veeqo::Channel.update(@channel.id, currency_code: 'USD')
 
 # Delete a channel
 puts Veeqo::Channel.destroy(@channel.id)
+
+# Channel's quantity by params
+puts Veeqo::Channel.count(query: 'Example')

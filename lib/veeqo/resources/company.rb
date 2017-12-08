@@ -1,6 +1,6 @@
 # Company
 # Metadata that describes the Company.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/company
+# http://docs.veeqo.apiary.io/#reference/company/company/view-company-detail
 
 module Veeqo
   class Company < Resource
@@ -30,8 +30,12 @@ module Veeqo
       get path.build, params
     end
 
-    def self.check_connection
-      info
+    def self.update(params = {})
+      put path.build, params
+    end
+
+    def self.check_connection(params = {})
+      info(params)
       true
     rescue Veeqo::Unauthorized
       false

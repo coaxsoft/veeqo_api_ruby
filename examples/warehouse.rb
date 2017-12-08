@@ -11,3 +11,6 @@ puts @warehouses
 # Get a warehouse
 @warehouse = @warehouses[0]
 puts Veeqo::Warehouse.find(@warehouse.id)
+
+# Get warehouse quantity by params
+puts Veeqo::Warehouse.count(query: 'Example')
