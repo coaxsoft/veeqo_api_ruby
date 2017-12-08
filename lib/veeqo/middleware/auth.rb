@@ -8,6 +8,7 @@ module Veeqo
 
       def call(env)
         env[:request_headers]['x-api-key'] = @options[:api_key]
+        env[:request_headers]['x-api-request'] = 'true'
         @app.call env
       end
     end

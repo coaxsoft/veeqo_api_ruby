@@ -6,7 +6,7 @@ RSpec.describe Veeqo::Middleware::Auth do
     }
     @api = Veeqo::Middleware::Auth.new(app, options)
     expect(app).to receive(:call).with(
-      request_headers: { 'x-api-key' => 'api_key' }
+      request_headers: { 'x-api-key' => 'api_key', 'x-api-request' => 'true' }
     )
     @api.call(request_headers: {})
   end
