@@ -1,10 +1,10 @@
 # DeliveryMethods
 # Resources related to the DeliveryMethods in the API.
-# https://developers.veeqo.com/docs/versions/1-0-0-beta/resources/delivery_methods
+# http://docs.veeqo.apiary.io/#reference/delivery-methods/delivery-methods-collection/list-all-delivery-methods
 
 module Veeqo
   class DeliveryMethod < Resource
-    include Veeqo::ResourceActions.new(uri: 'delivery_methods/%d', disable: [:destroy_all])
+    include Veeqo::ResourceActions.new(uri: 'delivery_methods/%d', disable: %i[destroy_all count])
 
     property :id
     property :cost

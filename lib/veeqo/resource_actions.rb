@@ -4,10 +4,8 @@ module Veeqo
 
     def initialize(options = {})
       @options = options
-      tap do |mod|
-        mod.define_singleton_method :_options do
-          mod.options
-        end
+      define_singleton_method :_options do
+        options
       end
     end
 
@@ -49,6 +47,10 @@ module Veeqo
 
       def destroy_all(params = {})
         delete path.build, params
+      end
+
+      def count(params = {})
+        quantity path.build, params
       end
     end
   end

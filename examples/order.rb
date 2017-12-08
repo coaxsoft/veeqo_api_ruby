@@ -17,6 +17,7 @@ customer = Veeqo::Customer.create(email: 'example@email.com')
 channel = Veeqo::Channel.create(name: 'Example')
 product = Veeqo::Product.all.last
 
+@tag = Veeqo::Tag.all.first
 @order = Veeqo::Order.create(
   order: {
     channel_id: channel.id,
@@ -34,5 +35,14 @@ puts @order
 # Update a order
 puts Veeqo::Order.update(@order.id, notes: 'example')
 
+# Set tag to order(orders)
+# Params:
+# order_ids - array of order ids
+# tags_ids - id of tags that would be assigned to those orders
+Veeqo::Order.bulk_tagging([@order.id], [@tag.id])
+
 # Delete a order
 puts Veeqo::Order.destroy(@order.id)
+
+# Orders quantity by params
+puts Veeqo::Order.count(status: 'awaiting_fulfillment')

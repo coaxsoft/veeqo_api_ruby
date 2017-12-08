@@ -22,10 +22,15 @@ supplier_data = {
 }
 puts Veeqo::Supplier.create(supplier_data)
 
+# Update supplier
 @supplier = @suppliers[0]
 supplier_data = {
   name: 'test_supplier_1'
 }
 puts Veeqo::Supplier.update(@supplier, supplier_data)
 
+# Destroy supplier
 puts Veeqo::Supplier.destroy(@supplier)
+
+# Get suppliers quantity by params
+puts Veeqo::Supplier.count

@@ -50,7 +50,8 @@ module Veeqo
 
       def delete(path, params = {})
         response = raw_request(:delete, path, params)
-        response.body
+        return response.body if response.body.empty?
+        build_response_object response
       end
 
       def post(path, params = {})
@@ -61,6 +62,11 @@ module Veeqo
       def put(path, params = {})
         response = raw_request(:put, path, params)
         build_response_object response
+      end
+
+      def quantity(path, params = {})
+        response = raw_request(:get, path, params)
+        response.headers['X-Total-Count'].to_i
       end
 
       def raw_request(method, path, params = {})
@@ -81,7 +87,7 @@ module Veeqo
 
       def parse(json)
         return [] if json.empty?
-        JSON.parse(json, symbolize_names: true)
+        Oj.load(json, symbol_keys: true)
       end
     end
   end

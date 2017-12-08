@@ -1,5 +1,7 @@
 module Veeqo
   class SubresourceActions < ResourceActions
+    attr_reader :options
+
     def included(base)
       base.send(:include, Request.new(options[:uri]))
       base.extend(ClassMethods)
