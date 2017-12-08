@@ -11,7 +11,7 @@ module Veeqo
         conn.headers = HEADERS
         conn.use Veeqo::Middleware::Auth, config
         conn.use Veeqo::Middleware::HttpException
-        conn.adapter :excon
+        conn.adapter Faraday.default_adapter
       end
     end
   end
