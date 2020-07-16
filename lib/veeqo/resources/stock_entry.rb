@@ -4,7 +4,7 @@
 
 module Veeqo
   class StockEntry < Resource
-    include Veeqo::SubresourceActions.new(uri: 'sellables/%d/warehouses/%d/stock_entry', disable: %i[destroy destroy_all all find create])
+    include Veeqo::SubresourceActions.new(uri: 'sellables/%d/warehouses/%d/stock_entry', disable: %i[destroy destroy_all all create])
     property :allocated_stock_level
     property :available_stock_level
     property :id
