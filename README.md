@@ -50,6 +50,14 @@ Veeqo::Company.info(connection: connection)
 => #<Veeqo::Company id=1234>
 ```
 
+### Nested Attributes
+
+To use nested attibutes you need add root key.
+
+```rb
+Veeqo::Customer.create(customer: { email: 'customer@example.com', billing_address_attributes: { first_name: 'Phil', last_name: 'Reynolds' }})
+```
+
 
 ## Development
 
