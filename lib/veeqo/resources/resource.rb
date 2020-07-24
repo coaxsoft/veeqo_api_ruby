@@ -4,5 +4,6 @@ require 'veeqo/subresource_actions'
 
 module Veeqo
   class Resource < Hashie::Mash
+    disable_warnings
   end
 end
